@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  scrollbar-color: #8a6a45 #12162a;
+  scrollbar-width: thin;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0d18;
+  color: #ece0c3;
+}
+
+/* Visible, high-contrast focus state for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #c6a15b;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.force-reduced-motion *,
+.force-reduced-motion *::before,
+.force-reduced-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Parchment-style card used throughout the dashboard */
+.parchment-card {
+  background: linear-gradient(180deg, rgba(236, 224, 195, 0.06) 0%, rgba(236, 224, 195, 0.02) 100%);
+  border: 1px solid rgba(198, 161, 91, 0.25);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.glow-border {
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  box-shadow: 0 0 0 1px rgba(198, 161, 91, 0.08), 0 0 24px rgba(198, 161, 91, 0.12);
+}
+
+.magical-dust {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.magical-dust span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #c6a15b;
+  border-radius: 999px;
+  opacity: 0;
+  animation: drift 7s linear infinite;
+}
